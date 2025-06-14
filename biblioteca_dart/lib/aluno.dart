@@ -1,3 +1,4 @@
+import "dart:io";
 import 'package:biblioteca_dart/usuario.dart';
 
 class Aluno extends Usuario {
@@ -11,6 +12,6 @@ class Aluno extends Usuario {
 
   @override
   void exibirTipoUsuario() {
-    print('Aluno');
+    stdout.write('Aluno');
   }
 }

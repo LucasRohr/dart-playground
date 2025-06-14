@@ -1,3 +1,4 @@
+import "dart:io";
 import 'package:biblioteca_dart/livro.dart';
 import 'package:biblioteca_dart/usuario.dart';
 
@@ -16,14 +17,20 @@ class Emprestimo {
       required this.dataDevolucao});
 
   void exibirResumoEmprestimo() {
-    String dataFormatada =
-        '${dataEmprestimo.day}/${dataEmprestimo.month}/${dataEmprestimo.year}';
+    if (livro.disponivel) {
+      String dataFormatada =
+          '${dataEmprestimo.day}/${dataEmprestimo.month}/${dataEmprestimo.year}';
 
-    print('Resumo do Empréstimo:\n');
-    print('Livro: ${livro.titulo}');
-    print('Usuário: ${usuario.nome} (');
-    usuario.exibirTipoUsuario();
-    print(')\n');
-    print('Data do Empréstimo: $dataFormatada');
+      livro.emprestar();
+
+      print('Resumo do Empréstimo:\n');
+      print('Livro: ${livro.titulo}');
+      stdout.write('Usuário: ${usuario.nome} (');
+      usuario.exibirTipoUsuario();
+      stdout.write(')\n');
+      print('Data do Empréstimo: $dataFormatada');
+    } else {
+      print('\nLivro indisponível para empréstimo :(');
+    }
   }
 }

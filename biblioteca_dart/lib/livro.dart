@@ -19,18 +19,18 @@ class Livro {
   void emprestar() {
     if (disponivel) {
       disponivel = false;
-      print('Livro emprestado com sucesso!');
+      print('\nLivro emprestado com sucesso!');
     } else {
-      print('Livro não está disponível :(');
+      print('\nLivro não está disponível :(');
     }
   }
 
   void devolver() {
     if (!disponivel) {
       disponivel = true;
-      print('Livro devolvido com sucesso!');
+      print('\nLivro devolvido com sucesso!');
     } else {
-      print('Livro já está disponível');
+      print('\nLivro já está disponível');
     }
   }
 
